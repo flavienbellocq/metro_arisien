@@ -392,7 +392,15 @@ void dijkstra::RecuperationPlusCourtChemin()
         m_ListeCodeStationPlusCourtChemin.push_back(prec);
         s = s+1;
     }
-    std::reverse(m_ListeCodeStationPlusCourtChemin.begin(),m_ListeCodeStationPlusCourtChemin.end());
+    int jk=0;
+    int njk=m_ListeCodeStationPlusCourtChemin.size();
+    std::vector <int> chemin;
+    for(jk=0;jk<njk;jk++)
+    {
+        chemin.push_back(m_ListeCodeStationPlusCourtChemin[njk-jk-1]);
+    }
+    m_ListeCodeStationPlusCourtChemin.clear();
+    m_ListeCodeStationPlusCourtChemin = chemin;
 }
 
 void dijkstra::ConstructionSortie()
